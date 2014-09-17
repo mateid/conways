@@ -1,12 +1,10 @@
-﻿var conway = function () {
+﻿var conway = (function () {
     var viewHeight = 400, viewWidth = 400;
     var gameHeight = viewHeight / 4;
     var gameWidth = viewWidth / 4;
     var timer, frame = 0;
     var data = [];
     var context;
-
-    
 
     function setAliveCellAt(x, y) {
         data[x][y] = 1;
@@ -47,6 +45,7 @@
     return {
         initialize: function (canvas) {
             context = canvas.getContext("2d");
+
             for (var i = 0; i < gameHeight; i++) {
                 data[i] = [];
                 for (var j = 0; j < gameWidth; j++) {
@@ -68,8 +67,8 @@
         restart: function () {
             timer = window.setInterval(tick, 15);
         }
-    };    
-};
+    };
+})();
 
 conway.Themes = {
     Light: "",
@@ -90,8 +89,8 @@ conway.AccentColors = {
     OrangeUK: "#FF6600"
 };
 conway.initialData = [
-{ "x": 20, "y": 20 },
-{ "x": 20, "y": 21 },
-{ "x": 20, "y": 22 },
-{ "x": 20, "y": 23 }
+    { "x": 20, "y": 20 },
+    { "x": 20, "y": 21 },
+    { "x": 20, "y": 22 },
+    { "x": 20, "y": 23 }
 ];
