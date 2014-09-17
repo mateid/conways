@@ -3,7 +3,7 @@
     var gameHeight = viewHeight / 4;
     var gameWidth = viewWidth / 4;
     var timer, frame = 0;
-    var data = [];
+    var data = [], oldData = [];
     var context;
 
     function setAliveCellAt(x, y) {
@@ -13,6 +13,20 @@
     function setDeadCellAt(x, y) {
         data[x][y] = 0;
     }
+
+    function computeCellValue(i, j) {
+        
+
+    }
+
+    function updateGameData() {
+        oldData = data;
+        for (var i = 0; i < gameWidth; i++) {
+            for (var j = 0; j < gameHeight; j++) {
+                data[i][j] = computeCellValue(i, j);
+            }
+        }
+    };
 
     function draw() {
         for (var i = 0; i < gameHeight; i++) {
@@ -39,6 +53,7 @@
 
     function tick() {
         frame++;
+        updateGameData();
         draw();
     }
 
