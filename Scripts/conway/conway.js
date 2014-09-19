@@ -6,17 +6,42 @@
     var data = [], oldData = [];
     var context;
 
-    function setAliveCellAt(x, y) {
-        data[x][y] = 1;
+    function setAliveCellAt(i, j) {
+        data[i][j] = 1;
     }
 
-    function setDeadCellAt(x, y) {
-        data[x][y] = 0;
+    function circularIndex(index, length) {
+        length -= 1;
+        if (index < 0) return length - 1 - index % length;
+        if (index > 0) return index % length;
+        return 0;
     }
+
+    function getNeighbours(i, j) {
+        var one = data[circularIndex(i - 1, gameWidth)][circularIndex(j - 1, gameHeight)];
+        var two = data[i][circularIndex(j - 1, gameHeight)];
+        var three = data[circularIndex(i + 1, gameWidth)][circularIndex(j - 1, gameHeight)];
+
+        var four = data[circularIndex(i - 1, gameWidth)][j];
+        var five = data[circularIndex(i + 1, gameWidth)][j];
+
+        var six = data[circularIndex(i - 1, gameWidth)][circularIndex(j - 1, gameHeight)];
+        var seven = data[i][circularIndex(j - 1, gameHeight)];
+        var eight = data[circularIndex(i + 1, gameWidth)][circularIndex(j - 1, gameHeight)];
+
+        return [one, two, three, four, five, six, seven, eight];
+    };
 
     function computeCellValue(i, j) {
-        
-
+        var currentValue = data[i][j];
+        var neighbours = getNeighbours(i, j);
+        var sum = 0;
+        for (var k = 0; k < neighbours.length; k++) {
+            sum += neighbours[k];
+        }
+        if (currentValue == 0 && sum == 3) return 1;
+        if (currentValue == 0 == 1 && (2 < sum < 4)) return 1;
+        return 0;
     }
 
     function updateGameData() {
