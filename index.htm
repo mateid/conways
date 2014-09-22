@@ -1,17 +1,20 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Comway's game of life</title>
+    <title>Conway's game of life</title>
     <script type="text/javascript" language="javascript" src="Scripts/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" language="javascript" src="Scripts/conway/conway.js"></script>
 </head>
 <body>
     <canvas id="canvas" height="400px" width="400px"></canvas>
-
+    <input id="tick" type="button" value="Tick"></input>
     <script type="text/javascript" language="javascript">
         $(document).ready(function () {
             conway.initialize($("#canvas")[0]);
             conway.start();
+            $("#tick").click(function(){
+                conway.next();
+            });
         });
     </script>
 </body>

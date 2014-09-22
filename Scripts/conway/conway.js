@@ -99,13 +99,19 @@
             }
         },
         pause: function () {
-            window.clearTimeout(timer);
+            return;
+//            window.clearTimeout(timer);
         },
         start: function () {
-            timer = window.setInterval(tick, 15);
+            return;
+//            timer = window.setInterval(tick, 15);
+        },
+        next: function(){
+            tick();
         },
         restart: function () {
-            timer = window.setInterval(tick, 15);
+            return;
+// timer = window.setInterval(tick, 15);
         }
     };
 })();
@@ -114,6 +120,7 @@ conway.Themes = {
     Light: "",
     Dark: ""
 };
+
 conway.AccentColors = {
     Blue: "#1BA1E2",
     Brown: "#A05000",
