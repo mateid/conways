@@ -1,7 +1,7 @@
-﻿Array.prototype.index = function(index){
+﻿Array.prototype.cindex = function(index){
     var circularIndex = index;
     if (index == -1) circularIndex = this.length - 1;
-    if (index > this.length - 1) circularIndex = index % (this.length - 1);
+    if (index > this.length - 1) circularIndex = index % (this.length);
 
     return this[circularIndex];
 }
@@ -20,16 +20,16 @@ var conway = (function () {
     }
 
     function getNeighbours(i, j) {
-        var one = data.index(i - 1).index(j - 1);
-        var two = data.index(i).index(j - 1);
-        var three = data.index(i + 1).index(j - 1);
+        var one = data.cindex(i - 1).cindex(j - 1);
+        var two = data.cindex(i).cindex(j - 1);
+        var three = data.cindex(i + 1).cindex(j - 1);
 
-        var four = data.index(i - 1).index(j);
-        var five = data.index(i + 1).index(j);
+        var four = data.cindex(i - 1).cindex(j);
+        var five = data.cindex(i + 1).cindex(j);
 
-        var six = data.index(i - 1).index(j - 1);
-        var seven = data.index(i).index(j - 1);
-        var eight = data.index(i + 1).index(j - 1);
+        var six = data.cindex(i - 1).cindex(j - 1);
+        var seven = data.cindex(i).cindex(j - 1);
+        var eight = data.cindex(i + 1).cindex(j - 1);
 
         return [one, two, three, four, five, six, seven, eight];
     };
