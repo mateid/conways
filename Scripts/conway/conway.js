@@ -1,8 +1,17 @@
-﻿var conway = (function () {
-    var viewHeight = 400, viewWidth = 400;
-    var gameHeight = viewHeight / 4;
-    var gameWidth = viewWidth / 4;
-    var timer, frame = 0;
+﻿Array.prototype.index = function(index){
+    var circularIndex = index;
+    if (index == -1) circularIndex = this.length - 1;
+    if (index > this.length - 1) circularIndex = index % (this.length - 1);
+
+    return this[circularIndex];
+}
+
+var conway = (function () {
+
+    var cellSize = 10;
+    var gameHeight = 11, gameWidth = 38;
+
+    var frame = 0;
     var data = [], oldData = [];
     var context;
 
@@ -10,24 +19,17 @@
         data[i][j] = 1;
     }
 
-    function circularIndex(index, length) {
-        length -= 1;
-        if (index < 0) return length - 1 - index % length;
-        if (index > 0) return index % length;
-        return 0;
-    }
-
     function getNeighbours(i, j) {
-        var one = data[circularIndex(i - 1, gameWidth)][circularIndex(j - 1, gameHeight)];
-        var two = data[i][circularIndex(j - 1, gameHeight)];
-        var three = data[circularIndex(i + 1, gameWidth)][circularIndex(j - 1, gameHeight)];
+        var one = data.index(i - 1).index(j - 1);
+        var two = data.index(i).index(j - 1);
+        var three = data.index(i + 1).index(j - 1);
 
-        var four = data[circularIndex(i - 1, gameWidth)][j];
-        var five = data[circularIndex(i + 1, gameWidth)][j];
+        var four = data.index(i - 1).index(j);
+        var five = data.index(i + 1).index(j);
 
-        var six = data[circularIndex(i - 1, gameWidth)][circularIndex(j - 1, gameHeight)];
-        var seven = data[i][circularIndex(j - 1, gameHeight)];
-        var eight = data[circularIndex(i + 1, gameWidth)][circularIndex(j - 1, gameHeight)];
+        var six = data.index(i - 1).index(j - 1);
+        var seven = data.index(i).index(j - 1);
+        var eight = data.index(i + 1).index(j - 1);
 
         return [one, two, three, four, five, six, seven, eight];
     };
@@ -39,9 +41,18 @@
         for (var k = 0; k < neighbours.length; k++) {
             sum += neighbours[k];
         }
-        if (currentValue == 0 && sum == 3) return 1;
-        if (currentValue == 0 == 1 && (2 < sum < 4)) return 1;
-        return 0;
+
+        if(currentValue == 1)
+        {
+            if(sum < 2 ) return 0;
+            if(sum == 2 || sum == 3) return 1;
+            if(sum > 3) return 0;
+        }
+
+        if (currentValue == 0)
+        {
+            if(sum == 3) return 1;
+        }
     }
 
     function updateGameData() {
@@ -58,22 +69,22 @@
             for (var j = 0; j < gameWidth; j++) {
                 var cell = data[i][j];
                 if (cell == 1) {
-                    paintAliveCell(i, j);
+                    paintAliveCell(j, i);
                 } else {
-                    paintDeadCell(i, j);
+                    paintDeadCell(j, i);
                 }
             }
         }
     }
 
-    function paintAliveCell(i, j) {
+    function paintAliveCell(x, y) {
         context.fillStyle = conway.AccentColors.Mango;
-        context.fillRect(i * 4, j * 4, 4, 4);
+        context.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
     }
 
-    function paintDeadCell(i, j) {
-        context.fillStyle = "white";
-        context.fillRect(i * 4, j * 4, 4, 4);
+    function paintDeadCell(x, y) {
+        context.fillStyle = "gray";
+        context.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
     }
 
     function tick() {
@@ -93,10 +104,14 @@
                 }
             }
 
-            for (var k = 0; k < conway.initialData.length; k++) {
-                var cell = conway.initialData[k];
-                setAliveCellAt(cell.x, cell.y);
+            for (var i = 0; i < conway.initialData.length; i++) {
+                var row = conway.initialData[i];
+                for (var j = 0; j < row.length; j++) {
+                    if(row[j] == 1) setAliveCellAt(i, j);
+                }
             }
+
+            draw();
         },
         pause: function () {
             return;
@@ -135,9 +150,18 @@ conway.AccentColors = {
     NokiaBlue: "#1080DD",
     OrangeUK: "#FF6600"
 };
+
 conway.initialData = [
-    { "x": 20, "y": 20 },
-    { "x": 20, "y": 21 },
-    { "x": 20, "y": 22 },
-    { "x": 20, "y": 23 }
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,1,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,1,0,1,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,1,1,0,0,0,0,0, 0,1,1,0,0,0,0,0,0,0, 0,0,0,0,0,1,1,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,1,0,0,0,1,0,0,0, 0,1,1,0,0,0,0,0,0,0, 0,0,0,0,0,1,1,0],
+    [0,1,1,0,0,0,0,0,0,0, 0,1,0,0,0,0,0,1,0,0, 0,1,1,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,1,1,0,0,0,0,0,0,0, 0,1,0,0,0,1,0,1,1,0, 0,0,0,1,0,1,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,1,0,0,0,0,0,1,0,0, 0,0,0,0,0,1,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,1,0,0,0,1,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,1,1,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0]
 ];

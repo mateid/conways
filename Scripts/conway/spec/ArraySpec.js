@@ -1,16 +1,12 @@
-describe("Player", function() {
+describe("Array", function() {
 
-  beforeEach(function() {
-    player = new Player();
-    song = new Song();
-  });
+  it("should be able to access circular index", function() {
 
-  it("should be able to play a Song", function() {
-    player.play(song);
-    expect(player.currentlyPlayingSong).toEqual(song);
+      var stuff = [0,1,2,3,4];
 
-    //demonstrates use of custom matcher
-    expect(player).toBePlaying(song);
+      var item = stuff.index(5);
+
+      expect(item).toBe(0);
   });
 
 });
