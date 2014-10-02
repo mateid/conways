@@ -1,0 +1,26 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'uninstall', '-g', 'karma' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose lib/node_modules/karma unbuild
+5 info preuninstall karma@0.12.24
+6 info uninstall karma@0.12.24
+7 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild karma@0.12.24
+8 verbose /usr/local/bin,[object Object] binRoot
+9 info postuninstall karma@0.12.24
+10 error Error: EACCES, unlink '/usr/local/lib/node_modules/karma'
+10 error  { [Error: EACCES, unlink '/usr/local/lib/node_modules/karma']
+10 error   errno: 3,
+10 error   code: 'EACCES',
+10 error   path: '/usr/local/lib/node_modules/karma' }
+11 error Please try running this command again as root/Administrator.
+12 error System Darwin 13.4.0
+13 error command "node" "/usr/local/bin/npm" "uninstall" "-g" "karma"
+14 error cwd /Users/matei/projects/conways
+15 error node -v v0.10.32
+16 error npm -v 1.4.28
+17 error path /usr/local/lib/node_modules/karma
+18 error code EACCES
+19 error errno 3
+20 error stack Error: EACCES, unlink '/usr/local/lib/node_modules/karma'
+21 verbose exit [ 3, true ]

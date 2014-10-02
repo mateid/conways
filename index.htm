@@ -10,10 +10,11 @@
     <input id="tick" type="button" value="Tick"/>
     <script type="text/javascript" language="javascript">
         $(document).ready(function () {
-            conway.initialize($("#canvas")[0]);
-            conway.start();
+            var game = conway.game(conway.GOSPER_GLIDER_GUN);
+            game.initialize($("#canvas")[0]);
+            game.start();
             $("#tick").click(function(){
-                conway.next();
+                game.next();
             });
         });
     </script>
