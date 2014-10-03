@@ -27,6 +27,8 @@ conway.ACCENT_COLORS = {
 };
 conway.GOSPER_GLIDER_GUN = [
     [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,1,0,0,0,0, 0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,1,0,1,0,0,0,0, 0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0, 0,0,0,1,1,0,0,0,0,0, 0,1,1,0,0,0,0,0,0,0, 0,0,0,0,0,1,1,0],
@@ -34,28 +36,39 @@ conway.GOSPER_GLIDER_GUN = [
     [0,1,1,0,0,0,0,0,0,0, 0,1,0,0,0,0,0,1,0,0, 0,1,1,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
     [0,1,1,0,0,0,0,0,0,0, 0,1,0,0,0,1,0,1,1,0, 0,0,0,1,0,1,0,0,0,0, 0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0, 0,1,0,0,0,0,0,1,0,0, 0,0,0,0,0,1,0,0,0,0, 0,0,0,0,0,0,0,0],
+
     [0,0,0,0,0,0,0,0,0,0, 0,0,1,0,0,0,1,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0, 0,0,0,1,1,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
 
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0]
 ];
 
 conway.DEFAULT = [
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,1,1,0,0,0,0,0,0,0],
-    [0,1,1,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0]
+        [0,0,0,0],
+        [0,1,1,0],
+        [0,1,1,0],
+        [0,0,0,0]
 ];
 
 conway.game = function (initialData) {
 
     var cellSize = 10;
+    var running = false;
 
     var frame = 0;
     var data = initialData, oldData = [];
@@ -63,22 +76,22 @@ conway.game = function (initialData) {
     var context;
 
     function getNeighbours(i, j) {
-        var one = data.cindex(i - 1).cindex(j - 1);
-        var two = data.cindex(i).cindex(j - 1);
-        var three = data.cindex(i + 1).cindex(j - 1);
+        var one = oldData.cindex(i - 1).cindex(j - 1);
+        var two = oldData.cindex(i - 1).cindex(j);
+        var three = oldData.cindex(i - 1).cindex(j + 1);
 
-        var four = data.cindex(i - 1).cindex(j);
-        var five = data.cindex(i + 1).cindex(j);
+        var four = oldData.cindex(i).cindex(j - 1);
+        var five = oldData.cindex(i).cindex(j + 1);
 
-        var six = data.cindex(i - 1).cindex(j - 1);
-        var seven = data.cindex(i).cindex(j - 1);
-        var eight = data.cindex(i + 1).cindex(j - 1);
+        var six = oldData.cindex(i + 1).cindex(j - 1);
+        var seven = oldData.cindex(i + 1).cindex(j);
+        var eight = oldData.cindex(i + 1).cindex(j + 1);
 
         return [one, two, three, four, five, six, seven, eight];
     }
 
     function computeCellValue(i, j) {
-        var currentValue = data[i][j];
+        var currentValue = oldData[i][j];
         var neighbours = getNeighbours(i, j);
         var sum = 0;
         for (var k = 0; k < neighbours.length; k++) {
@@ -99,12 +112,15 @@ conway.game = function (initialData) {
     }
 
     function updateGameData() {
-        oldData = data;
+
+        for (var i = 0; i < gameHeight; i++){
+            oldData[i] = [];
+            for(var j = 0; j < gameWidth; j++)
+                oldData[i][j] = data[i][j];
+        }
+
         for (var i = 0; i < gameHeight; i++) {
-            for (var j = 0; j < gameWidth; j++) {
-                var value = computeCellValue(i, j);
-                data[i][j] = value;
-            }
+            for (var j = 0; j < gameWidth; j++) data[i][j] = computeCellValue(i, j);
         }
     }
 
@@ -131,25 +147,32 @@ conway.game = function (initialData) {
         context.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
     }
 
-    function tick() {
+    function nextFrame() {
         frame++;
         updateGameData();
         draw();
     }
 
     return {
+
+        CurrentFrame: data,
+
         initialize: function (canvas) {
             context = canvas.getContext("2d");
             draw();
         },
         pause: function () {
-            return;
+            window.clearInterval(running);
         },
         start: function () {
-            return;
+            running = window.setInterval(nextFrame, 35);
         },
         next: function(){
-            tick();
+            nextFrame();
+        },
+        tick: function()
+        {
+            updateGameData();
         },
         restart: function () {
             return;
