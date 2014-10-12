@@ -2,16 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Conway's game of life</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script type="text/javascript" language="javascript" src="scripts/lib/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" language="javascript" src="scripts/conway/conway.js"></script>
 </head>
 <body>
-    <canvas id="canvas" height="400px" width="400px"></canvas>
 
-    <input id="tick" type="button" value="Tick"/>
-    <input id="start" type="button" value="Start"/>
-    <input id="pause" type="button" value="Pause"/>
+    <canvas class="center" id="canvas" height="801px" width="801px"></canvas>
 
+    <div>
+        <input id="tick" type="button" value="Tick"/>
+        <input id="start" type="button" value="Start"/>
+        <input id="pause" type="button" value="Pause"/>
+    </div>
     <script type="text/javascript" language="javascript">
         $(document).ready(function () {
             var game = conway.game(conway.GOSPER_GLIDER_GUN);
