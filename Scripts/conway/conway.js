@@ -148,7 +148,7 @@ conway.game = function (initialData) {
 
         for(var i = 0; i <= height; i = i + cellSize){
             context.beginPath();
-            context.lineWidth = 2;
+            context.lineWidth = 0.1;
             context.moveTo(0, i);
             context.lineTo(width, i);
             context.stroke();
@@ -156,7 +156,7 @@ conway.game = function (initialData) {
 
         for(var i = 0; i <= width; i = i + cellSize){
             context.beginPath();
-            context.lineWidth = 2;
+            context.lineWidth = 0.1;
             context.moveTo(i, 0);
             context.lineTo(i, height);
             context.stroke();
@@ -209,4 +209,3 @@ conway.game = function (initialData) {
         }
     };
 };
-
